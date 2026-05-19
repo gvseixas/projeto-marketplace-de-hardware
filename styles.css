@@ -1,0 +1,718 @@
+/* =========================================================
+   VARIÁVEIS GLOBAIS
+========================================================= */
+:root {
+    --bg: #0b1220;
+    --card: #111a2e;
+    --text: #e7eefc;
+    --muted: #a8b3d6;
+
+    --primary: #4f8cff;
+    --primary2: #2a6cf7;
+
+    --ok: #2ecc71;
+    --bad: #ff5a5f;
+
+    --border: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 10;
+
+    background: rgba(44, 235, 30, 0.397);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+    padding: 14px 0;
+}
+
+
+/* =========================================================
+   LOGO / BRAND
+========================================================= */
+.brand {
+    color: var(--text);
+    text-decoration: none;
+
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.brand span {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+.nav {
+    display: none;
+    gap: 14px;
+}
+
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a:hover {
+    color: var(--text);
+}
+
+
+/* =========================================================
+   AÇÕES DO HEADER
+========================================================= */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    padding: 10px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+
+    background: var(--primary);
+    color: #061022;
+
+    font-weight: 800;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--primary2);
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   CARRINHO
+========================================================= */
+.cart-link {
+    position: relative;
+
+    padding: 8px;
+
+    color: var(--text);
+    text-decoration: none;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    padding: 3px 8px;
+
+    background: var(--primary);
+    color: #061022;
+
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero {
+    padding: 28px 0 18px;
+}
+
+.hero-content {
+    padding: 22px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(79, 140, 255, 0.18),
+            transparent
+        );
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 34px;
+}
+
+.hero p {
+    margin: 0 0 16px;
+
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   FILTROS / BUSCA
+========================================================= */
+.filters {
+    padding: 10px 0 18px;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.search-form input,
+.search-form select {
+    flex: 1;
+    min-width: 220px;
+
+    padding: 11px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+}
+
+
+/* =========================================================
+   TÍTULOS DE SEÇÃO
+========================================================= */
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--primary);
+    text-decoration: none;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   GRID DE CARDS
+========================================================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    gap: 14px;
+    padding: 10px 0 34px;
+}
+
+@media (min-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+.card {
+    overflow: hidden;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    transition:
+        transform 0.12s ease,
+        border-color 0.12s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(79, 140, 255, 0.45);
+}
+
+.card-thumb {
+    position: relative;
+    height: 120px;
+
+    background:
+        radial-gradient(
+            600px 120px at 10% 0%,
+            rgba(79, 140, 255, 0.18),
+            transparent 60%
+        ),
+        rgba(255, 255, 255, 0.02);
+}
+
+.thumb-icon {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(79, 140, 255, 0.9);
+    font-size: 34px;
+}
+
+.thumb-icon.big {
+    font-size: 54px;
+}
+
+.card-body {
+    padding: 14px;
+}
+
+.card-title {
+    margin: 0 0 10px;
+
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.card-price {
+    margin-bottom: 8px;
+
+    color: var(--text);
+    font-weight: 950;
+}
+
+.card-stock .ok {
+    color: var(--ok);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.card-stock .bad {
+    color: var(--bad);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+.cat-pill {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 10px;
+
+    background: rgba(79, 140, 255, 0.16);
+    color: var(--primary);
+
+    border: 1px solid rgba(79, 140, 255, 0.45);
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.cat-pill.large {
+    position: static;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.site-footer {
+    padding: 18px 0;
+
+    color: var(--muted);
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   PÁGINAS
+========================================================= */
+.page-head {
+    padding: 18px 0 8px;
+}
+
+.page-head h1 {
+    margin: 0;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+    padding: 18px 0;
+}
+
+
+/* =========================================================
+   ALERTAS / NOTICES
+========================================================= */
+.notice {
+    margin: 14px 0;
+    padding: 12px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.notice.ok {
+    background: rgba(46, 204, 113, 0.08);
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+.notice.bad {
+    background: rgba(255, 90, 95, 0.08);
+    border-color: rgba(255, 90, 95, 0.5);
+}
+
+
+/* =========================================================
+   AUTENTICAÇÃO
+========================================================= */
+.auth {
+    padding: 36px 0;
+}
+
+.auth-card {
+    max-width: 440px;
+    margin: 0 auto;
+
+    padding: 22px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.auth-card h1 {
+    margin: 0 0 14px;
+}
+
+.auth-card label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+    margin: 12px 0;
+
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.auth-card input {
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   PRODUTO
+========================================================= */
+.product {
+    padding: 18px 0 28px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+}
+
+@media (min-width: 900px) {
+    .product-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+    }
+}
+
+.product-image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    min-height: 260px;
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.product-info h1 {
+    margin: 0 0 10px;
+}
+
+.product-price {
+    margin-bottom: 10px;
+
+    font-size: 24px;
+    font-weight: 950;
+}
+
+.product-stock {
+    margin-bottom: 12px;
+}
+
+.product-desc {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORMULÁRIO DE ADICIONAR
+========================================================= */
+.add-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.add-form label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.add-form input {
+    max-width: 200px;
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   TABELA DO CARRINHO
+========================================================= */
+.cart-table {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-collapse: collapse;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 12px;
+
+    text-align: left;
+    vertical-align: middle;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-table th {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.cart-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   ITEM DO CARRINHO
+========================================================= */
+.cart-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.thumb {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(79, 140, 255, 0.95);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.cart-item-name {
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   AÇÕES DO CARRINHO
+========================================================= */
+.cart-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.cart-total {
+    font-weight: 950;
+}
+
+.total-amount {
+    color: var(--primary);
+}
+
+.cart-actions .btn {
+    white-space: nowrap;
+}
